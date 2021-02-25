@@ -12,7 +12,7 @@ public class FullTest {
         UserModel user = new UserModel("201", "123", "vk_user");
 
         Response session = Reqeust.loginPost (user);
-        Assert.assertEquals(204,session.statusCode());
+        Assert.assertEquals(200,session.statusCode());
         String sessionId = session.jsonPath().get("session_id");
 
         Response check = Reqeust.checkStatus(sessionId);

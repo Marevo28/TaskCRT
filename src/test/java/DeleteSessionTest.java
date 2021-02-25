@@ -17,18 +17,16 @@ public class DeleteSessionTest {
     @DataProvider
     public static Object[][] sumTestData() {
         return new Object[][]{
-                {""},
-                {"0"},
-                {"-1"},
-                {"null"},
-                {"be08fd8d-579b-4e56-949f-b97a00774151"},//ранее активная сессия
-                {"be++++8d-579b-4e56-949f-b97a00774151"},
-                {"be08fd8d 579b 4e56 949f b97a00774151"},
-                {"beO8fd8d-579b-4e56-949f-b97a00774151"},
-                {"be08fd8d-579b-4e56-949f-b97a00774!51"},
-                {"be08fd8d-579b-4e56-949f-b97a00774!51"},
-
-
+                {400,""},
+                {400,"0"},
+                {400,"-1"},
+                {400,"null"},
+                {401,"be08fd8d-579b-4e56-949f-b97a00774151"},
+                {400,"be08fd8d-579b-4e56-949f-b97a00774151-be08fd8d-579b-4e56-949f-b97a00774151"},
+                {400,"be++++8d-579b-4e56-949f-b97a00774151"},
+                {400,"be08fd8d 579b 4e56 949f b97a00774151"},
+                {400,"beO8fd8d-579b-4e56-949f-b97a00774151"},
+                {400,"be08fd8d-579b-4e56-949f-b97a00774!51"},
         };
     }
     @Before
@@ -48,10 +46,10 @@ public class DeleteSessionTest {
 
     @Test
     @UseDataProvider("sumTestData")
-    public void deleteNotCorrect(String m){
+    public void deleteNotCorrect(int k,String m){
 
         Response delete = Reqeust.deleteSession(m);
-        Assert.assertEquals(400,delete.statusCode());
+        Assert.assertEquals(k,delete.statusCode());
         //Можно брать активный SessionID и в него подтсавлять уже различные проверки, изменяя 1 или несколько случайных символов
     }
 

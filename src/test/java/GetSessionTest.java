@@ -27,10 +27,18 @@ public class GetSessionTest {
     @DataProvider
     public static Object[][] sumTestData() {
         return new Object[][]{
-                {""},
-                {"%$%#GDDGDGDGDGDG545354"},
-                {"null"},
-                {"1000000"}
+                {400,""},
+                {400,"0"},
+                {400,"%$%#GDDGDGDGDGDG545354%$%#GDDGDGDGDGDG545354%$%#GDDGDGDGDGDG545354%$%#GDDGDGDGDGDG545354"},
+                {400,"null"},
+                {400,"1000000"},
+                {400,"beO8fd8d-579b-4e56-949f-b97a00774151-beO8fd8d-579b-4e56-949f-b97a00774151"},
+                {400,"be.8fd8d-579b-4e56-949f-b97a00774151"},
+                {400,"be!8fd8d-579b-4e56-949f-b97a00774151"},
+                {400,"'be08fd8d-579b-4e56-949f-b97a00774151'"},
+                {400,"null-null-null-null-null"},
+                {400,"DROP TABLE username"},
+                {400,"(<script>alert(«Hello, world!»)</alert>, <script>document.getElementByID(«…»).disabled=true</script>)"},
         };
     }
 
@@ -41,9 +49,9 @@ public class GetSessionTest {
     }
     @Test
     @UseDataProvider("sumTestData")
-    public void checkNotCorrect(String m){
+    public void checkNotCorrect(int k, String m){
         Response response = Reqeust.checkStatus(m);
-        Assert.assertEquals(400,response.statusCode());
+        Assert.assertEquals(k,response.statusCode());
     }
 
 

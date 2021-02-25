@@ -11,3 +11,7 @@ R
 "src/main/java/reqeust/Reqeust.java,8\9\89b892f86c09412c404e71a2c366ffb893a68f64
 Q
 !src/test/java/GetSessionTest.java,0\b\0bf0509c983059dc2ffb1b631d7e44f2c5f06e0f
+R
+"src/test/java/PostSessionTest.java,7\4\741451fe788e7163660f84c63b03fff756ca0d4b
+T
+$src/test/java/DeleteSessionTest.java,b\7\b7b0cc391da8fc5ca4ffecd6fa03543152233f20
